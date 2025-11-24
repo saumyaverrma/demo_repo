@@ -4,7 +4,9 @@ Track your personal pollution exposure using this app which helps users understa
 
 ## Description
 This app gives us:
+
 ###Real-Time AQI (Air Quality)
+
 ● AQI level near the user
 ● Pollutant concentration like PM2.5
 ● Real-time updates
