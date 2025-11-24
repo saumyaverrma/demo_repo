@@ -52,7 +52,10 @@ exposure = minutes_outside × average_aqi
 6.AI-generated recovery plan screen <br>
 
 ## Installation
-1.git clone <repo> <br>
+1.clone the project into your system
+```
+git clone <repo>
+```
 2.open project in Android Studio <br>
 3.add Gemini API key <br>
 4.run on device <br>
