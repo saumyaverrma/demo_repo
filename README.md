@@ -7,6 +7,7 @@ This app gives us:
 
 ### Real-Time AQI (Air Quality)
 ● AQI level near the user
+<br>
 ● Pollutant concentration like PM2.5
 ● Real-time updates
 ### Outdoor Exposure Timer
