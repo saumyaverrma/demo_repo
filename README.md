@@ -8,53 +8,53 @@ This app gives us:
 ### Real-Time AQI (Air Quality)
 ● AQI level near the user
 <br>
-● Pollutant concentration like PM2.5
+● Pollutant concentration like PM2.5 <br>
 ● Real-time updates
 ### Outdoor Exposure Timer
-● User sets home location
-● Geofence detects when user leaves/enters home
+● User sets home location <br>
+● Geofence detects when user leaves/enters home <br>
 ● Exposure = Time Outside × AQI
 ### Daily Exposure Summary
-Displays:
-● Today’s time outdoors
-● Average AQI
-● Total exposure score
+Displays: <br>
+● Today’s time outdoors <br>
+● Average AQI <br>
+● Total exposure score <br>
 ### AI Recovery Plan (New Feature)
-● At the end of the day, the app generates:
-● 2–4 minute breathing exercise
-● Two diet/home remedy suggestions
-● Short safety disclaimer
-● Powered by Gemini API (one call per day)
+● At the end of the day, the app generates: <br>
+● 2–4 minute breathing exercise <br>
+● Two diet/home remedy suggestions <br>
+● Short safety disclaimer <br>
+● Powered by Gemini API (one call per day) <br>
 
 ## How It Works
-1.User sets home location → geofence created
-2.Leaving home → timer starts
-3.Entering home → timer stops
-4.Live AQI fetched periodically
-5.Exposure calculated:
+1.User sets home location → geofence created <br>
+2.Leaving home → timer starts <br>
+3.Entering home → timer stops <br>
+4.Live AQI fetched periodically <br>
+5.Exposure calculated: 
 ```
 exposure = minutes_outside × average_aqi
 ```
-6.App calls Gemini with user’s exposure summary
+6.App calls Gemini with user’s exposure summary <br>
 7.Gemini returns structured JSON with breathing + diet plan
 
 ## Tech Stack
-1.Flutter 
-2.OpenAQ API for real-time AQI
-3.Gemini API for recovery plan generation
+1.Flutter <br>
+2.OpenAQ API for real-time AQI <br>
+3.Gemini API for recovery plan generation <br>
 
 ## MVP Scope
-1.Set home geofence
-2.Auto start/stop outdoor timer
-3.Fetch real-time AQI
-4.Exposure calculation
-5.Exposure summary UI
-6.AI-generated recovery plan screen
+1.Set home geofence <br>
+2.Auto start/stop outdoor timer <br>
+3.Fetch real-time AQI <br>
+4.Exposure calculation <br>
+5.Exposure summary UI <br>
+6.AI-generated recovery plan screen <br>
 
 ## Installation
-1.git clone <repo>
-2.open project in Android Studio
-3.add Gemini API key
-4.run on device
+1.git clone <repo> <br>
+2.open project in Android Studio <br>
+3.add Gemini API key <br>
+4.run on device <br>
 
 
