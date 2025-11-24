@@ -1,64 +1,58 @@
 # Exposure-Autocounter
 
-Track your personal pollution exposure
-
-This project helps users understand how much polluted air they personally breathe every day using *live AQI data* and *geofencing*
+Track your personal pollution exposure using this app which helps users understand how much polluted air they personally breathe every day using *live AQI data* and *geofencing*.
 
 ## Description
+This app gives us:
+###Real-Time AQI (Air Quality)
+● AQI level near the user
+● Pollutant concentration like PM2.5
+● Real-time updates
+###Outdoor Exposure Timer
+● User sets home location
+● Geofence detects when user leaves/enters home
+● Exposure = Time Outside × AQI
+###Daily Exposure Summary
+Displays:
+● Today’s time outdoors
+● Average AQI
+● Total exposure score
+###AI Recovery Plan (New Feature)
+● At the end of the day, the app generates:
+● 2–4 minute breathing exercise
+● Two diet/home remedy suggestions
+● Short safety disclaimer
+● Powered by Gemini API (one call per day)
 
-An in-depth paragraph about your project and overview of use.
-
-## Getting Started
-
-### Dependencies
-
-* Describe any prerequisites, libraries, OS version, etc., needed before installing program.
-* ex. Windows 10
-
-### Installing
-
-* How/where to download your program
-* Any modifications needed to be made to files/folders
-
-### Executing program
-
-* How to run the program
-* Step-by-step bullets
+##How It Works
+1.User sets home location → geofence created
+2.Leaving home → timer starts
+3.Entering home → timer stops
+4.Live AQI fetched periodically
+5.Exposure calculated:
 ```
-code blocks for commands
+exposure = minutes_outside × average_aqi
 ```
+6.App calls Gemini with user’s exposure summary
+7.Gemini returns structured JSON with breathing + diet plan
 
-## Help
+###Tech Stack
+1.Flutter 
+2.OpenAQ API for real-time AQI
+3.Gemini API for recovery plan generation
 
-Any advise for common problems or issues.
-```
-command to run if program contains helper info
-```
+###MVP Scope
+1.Set home geofence
+2.Auto start/stop outdoor timer
+3.Fetch real-time AQI
+4.Exposure calculation
+5.Exposure summary UI
+6.AI-generated recovery plan screen
 
-## Authors
+### Installation
+1.git clone <repo>
+2.open project in Android Studio
+3.add Gemini API key
+4.run on device
 
-Contributors names and contact info
 
-ex. Dominique Pizzie  
-ex. [@DomPizzie](https://twitter.com/dompizzie)
-
-## Version History
-
-* 0.2
-    * Various bug fixes and optimizations
-    * See [commit change]() or See [release history]()
-* 0.1
-    * Initial Release
-
-## License
-
-This project is licensed under the [NAME HERE] License - see the LICENSE.md file for details
-
-## Acknowledgments
-
-Inspiration, code snippets, etc.
-* [awesome-readme](https://github.com/matiassingers/awesome-readme)
-* [PurpleBooth](https://gist.github.com/PurpleBooth/109311bb0361f32d87a2)
-* [dbader](https://github.com/dbader/readme-template)
-* [zenorocha](https://gist.github.com/zenorocha/4526327)
-* [fvcproductions](https://gist.github.com/fvcproductions/1bfc2d4aecb01a834b46)
