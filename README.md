@@ -1,4 +1,4 @@
-# AirGuard  
+# 🌍AirGuard  
 **Real-Time Air Quality Monitoring & Alert System**
 Even in the same city, people experience different pollution exposure. Someone who spends more time outdoors breathes far more polluted air than someone mostly indoors. <br>
 **AirGuard tracks every outdoor session using geofencing and combines duration × live AQI to calculate each user’s personal exposure score.**<br>
@@ -7,44 +7,23 @@ At the end of the day, the app also generates a personalized recovery plan (brea
 
 ---
 
-## Table of Contents  
-- [Project Overview](#project-overview)  
-- [Key Features](#key-features)  
-- [Tech Stack & Architecture](#tech-stack--architecture)  
-- [System Diagram](#system-diagram)  
+## 📚Table of Contents  
+- [Features](#features)
+- [Tech Stack & Dependencies](#tech-stack--dependencies)  
 - [Installation & Setup](#installation--setup)  
-- [Usage](#usage)  
-- [Screenshots / Demo](#screenshots--demo)  
-- [Directory Structure](#directory-structure)  
-- [Future Enhancements](#future-enhancements)  
-- [License](#license)
+- [How the App Works](#how-the-app-works)  
+- [Directory Structure](#directory-structure)
 
 ---
 
-## Project Overview  
-AirGuard is a cross-platform system designed to **monitor air-quality parameters in real time**, including PM levels, VOCs, CO₂ and general air pollution metrics.  
-It provides a unified dashboard that works on **Android, iOS, Web, Windows, Linux, and macOS**, helping users track environmental conditions instantly and receive alerts when the air quality becomes unsafe.
 
----
-
-## Key Features  
-- Real-time sensor data visualization  
-- AQI (Air Quality Index) calculations and trend charts  
-- Threshold-based alerts and notifications  
-- Multi-platform support (mobile + desktop + web)  
-- Modular architecture allowing easy sensor expansion  
-- Clean UI built with Flutter  
-- Historical data visualization (if backend supports)
-
----
-
-## Features (Detailed)
+## 🧩Features
 
 ### **1. Real-Time AQI Tracking**
 - Fetches live AQI from OpenAQ API  
 - Shows current AQI and PM2.5 around the user  
 
----
+
 
 ### **2. Outdoor Exposure Timer**
 - User sets home location  
@@ -54,7 +33,7 @@ It provides a unified dashboard that works on **Android, iOS, Web, Windows, Linu
 Exposure = Time Outside × AQI
 ```
 
----
+
 
 ### **3. Daily Exposure Summary**
 Displays:  
@@ -62,42 +41,40 @@ Displays:
 2. Average AQI  
 3. Total exposure score  
 
----
 
-### **4. AI Recovery Plan (New Feature)**
-At the end of the day, the app generates:  
-- 2–4 minute breathing exercise  
-- Two diet/home remedy suggestions  
-- Short safety disclaimer  
-- Powered by **Gemini API** (one call per day)
 
----
-
-## Tech Stack & Architecture  
-
-### **Tech Stack**  
-- **Frontend:** Flutter (Dart)  
-- **Platforms:** Android
-- **Backend / DB:** Firebase / REST API / MQTT / Node.js / etc.  
-- **Hardware / Sensors:** MQ-135, ESP32, PMS5003 (or your specific sensors)
+### **4. Auto generated recovery plan**
+ 1. Score 0–100 → Low (Simple breathing exercises (2–3 guided breathing rounds))<br>
+ 2. Score 101–250 → Moderate (Recovery: Hydration + light movement (1 hydration action + 2 light movements / stretches))<br>
+ 3. Score 251–400 → High (Mask + avoid exposure + diet + breathing (mask reminder, 2 dietary tips, 1 breathing + light indoor activity))<br>
+ 4. Score 400 → Critical (Doctor recommendation + immediate actions (call-to-action, emergency tips, reduce exposure now))<br>
 
 ---
 
-### **Architecture Overview**
+## 💻Tech Stack & Dependencies 
 
-```
-Sensors → Microcontroller → Cloud Database/API → AirGuard Apps
-                                   ↘ Alert System
-```
+### Tech Stack
+1. Flutter for framework<br>
+2. Dart for Language
+
+### Dependencies
+geolocator – For live GPS tracking and geofencing<br>
+WAQI API – For live AQI and PM2.5 data
 
 ---
 
-## System Diagram  
-
 ---
 
-## Installation & Setup  
 
+## 📥Installation & Setup  
+Download Flutter SDK<br>
+Configure System Environment Variables<br>
+Install Android studio<br>
+Set up Android Studio for Flutter<br>
+Accept Android Licenses / Configure SDK<br>
+Verify Installation — Run flutter doctor<br>
+Create a New Flutter Project<br>
+and
 ### **1. Clone the repository**
 ```bash
 git clone https://github.com/retrospecs0801/AirGuard.git
@@ -112,53 +89,52 @@ flutter pub get
 ```
 
 ---
-
-### **3. Configure environment**
-1. Add sensor endpoints / backend URLs in your config file  <br>
-2. Adjust alert thresholds as needed  
-
----
-
+Set up your wireless device.<br>
+and 
 ### **4. Run the application**
 ```bash
 flutter run
 ```
 
----
-
-### **5. Build for web**
-```bash
-flutter build web
-```
-
----
-
-## Usage  
-1. Open the AirGuard application on your device  
-2. Connect to the sensor backend / IoT device  
-3. Monitor real-time air-quality metrics  
-4. Check AQI, graphs, and historical data  
-5. Receive alerts when levels exceed safety thresholds  
-6. Adjust units, thresholds, and data sources in settings  
+## 📱How the app works? 
+(refer the video for detailed explaination)
+1. Click on the set home buttton.
+2. Walk about 15 m away from the location in order to get outside the preset home location
+3. Session starts as you get out of the preset home location
+4. Once you get back to the home location it will show the total exposure (which is equal to the time outside * AQI of the location.
+5. Scroll down to see the recovery option click on it.
+6. It shows the solutions to follow according to the level of exposure.
+7. Click on the task to start your recovery sesssion.
+8. Complete them.
+9. YEAH!! you have countered your AQI exposure.
 
 ---
 
-## Screenshots / Demo  
 
----
-
-## Directory Structure  
+## 🗂️Directory Structure  
 ```
 AirGuard/
-├── android/          ← Android project
-├── ios/              ← iOS project
-├── web/              ← Web build
-├── linux/            ← Linux desktop build
-├── macos/            ← macOS build
-├── windows/          ← Windows build
-├── lib/              ← Flutter/Dart app source
-├── test/             ← Tests
-├── docs/             ← Images, diagrams, documentation
-├── pubspec.yaml
-└── README.md
+├── lib
+│   ├── models
+│   │   ├── exposure_level.dart
+│   │   └── recovery_task.dart
+│   │
+│   ├── recovery
+│   │   ├── completion_screen.dart
+│   │   ├── guided_breathing.dart
+│   │   ├── task_card.dart
+│   │   ├── recovery_module.dart
+│   │   └── recovery_screen.dart
+│   │
+│   ├── services
+│   │   ├── gemini_service.dart
+│   │   ├── exposure_service.dart
+│   │   ├── location_service.dart
+│   │   ├── pollution_service.dart
+│   │   └── storage_service.dart
+│   │
+│   └── widgets
+│       └──
+│
+└── main.dart
 ```
